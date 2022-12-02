@@ -1,0 +1,142 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>KBL 팀 추천 서비스 - WhatsYourTeam</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<div id='container'>
+    <div id='box-left'></div>
+    <div id='box-center'>
+        <div id = "iframe">
+            <iframe width="685.8" height="315" src="https://www.youtube.com/embed/-Q5O71sOM_0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <div id = "whatsYourTeam">
+            ð 당신의 팀을 추천해드립니다 - WhatsYourTeam ð
+        </div>
+        <div id = "guide1">
+            다음 영상을 보고 만족도를 평가해주세요
+        </div>
+        <span id = "guide2">
+            [15개 중 2개 평가 완료]
+        </span>
+        <!--        <form action = "/" method = "post">-->
+        <div id = "survey">
+            <button type = "button" class = "check" id = "first" name = "1" onclick="saveValue()">매우 불만족</button>
+            <button type = "button" class = "check" id = "second" name = "2" onclick="saveValue()">불만족</button>
+            <button type = "button" class = "check" id = "third" name = "3" onclick="saveValue()">보통</button>
+            <button type = "button" class = "check" id = "fourth" name = "4" onclick="saveValue()">만족</button>
+            <button type = "button" class = "check" id = "fifth" name = "5" onclick="saveValue()">매우 만족</button>
+        </div>
+        <div id = "guide3">
+                <span id = "next">
+                    <button type = "button" id = "nextButton" onclick="ajax(); location.href = 'fourthSurvey'">다음 설문하러 가기</button>
+                </span>
+        </div>
+        <!--        </form>-->
+    </div>
+    <div id='box-right'></div>
+</div>
+</body>
+
+<style>
+#container {
+  display: flex;
+  width : 100vw;
+  height : 100vh;
+}
+
+#box-left {
+  border-right : 1px solid black;
+  flex: 1;
+}
+
+#box-center {
+  flex: 3;
+  text-align: center;
+}
+
+#box-right {
+  flex: 1;
+  text-align: right;
+  border-left : 1px solid black;
+}
+
+#iframe {
+    margin-top : 10px;
+}
+
+#whatsYourTeam {
+    margin-top : 25px;
+    font-weight : bold;
+    font-size : 20px;
+}
+
+#guide1 {
+    margin-top : 15px;
+    margin-bottom : 28px;
+    font-weight : bold;
+    font-size : 30px;
+}
+
+#guide2 {
+    margin-top : 15px;
+    font-weight : bold;
+    font-size : 30px;
+    background-color : pink;
+}
+
+#survey {
+    margin-top : 27px;
+}
+
+.check {
+    width : 85px;
+    height : 70px;
+    border-radius : 15px;
+    font-weight : bold;
+    margin : 20px;
+}
+</style>
+<script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
+<script>
+    var choice;
+
+    function saveValue(){
+        let target = event.currentTarget.id;
+        if(document.getElementById(target).style.backgroundColor == "navy"){
+            document.getElementById(target).style.backgroundColor = "buttonface";
+            document.getElementById(target).style.color = "black";
+        }
+        else{
+            document.getElementById(target).style.backgroundColor = "navy";
+            document.getElementById(target).style.color = "white";
+        }
+        if(target == "first"){
+            choice = 1;
+        }
+        if(target == "second"){
+            choice = 2;
+        }
+        if(target == "third"){
+            choice = 3;
+        }
+        if(target == "fourth"){
+            choice = 4;
+        }
+        if(target == "fifth"){
+            choice = 5;
+        }
+    }
+
+    function ajax(){
+        $.ajax({
+            url: '/thirdSurvey', // 클라이언트가 요청을 보낼 서버의 URL 주소
+            data: {"firstSurvey" : choice},        // HTTP 요청과 함께 서버로 보낼 데이터
+            type: 'POST',          // HTTP 요청 방식(GET, POST)
+            success : function(data) {
+            }
+        });
+    }
+</script>
+</html>
