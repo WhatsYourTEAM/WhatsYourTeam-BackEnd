@@ -25,4 +25,39 @@ public class User {
 
     @Column(name = "block_first")
     private Integer blockFirst;
+
+    @Column(name = "assist_first")
+    private Integer assistFirst;
+
+    @Column(name = "rebound_second")
+    private Integer reboundSecond;
+
+    @Column(name = "steal_second")
+    private Integer stealSecond;
+
+    @Column(name = "three_second")
+    private Integer threeSecond;
+
+    @Column(name = "block_second")
+    private Integer blockSecond;
+
+    @Column(name = "assist_second")
+    private Integer assistSecond;
+
+    @Column(name = "rebound_third")
+    private Integer reboundThird;
+
+    @Column(name = "steal_third")
+    private Integer stealThird;
+
+    @Column(name = "three_third")
+    private Integer threeThird;
+
+    @Column(name = "block_third")
+    private Integer blockThird;
+
+    @Column(name = "assist_third")
+    private Integer assistThird;
+
+
 }

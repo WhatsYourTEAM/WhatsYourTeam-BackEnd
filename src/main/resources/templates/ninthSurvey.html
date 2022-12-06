@@ -18,7 +18,7 @@
             다음 영상을 보고 만족도를 평가해주세요
         </div>
         <span id = "guide2">
-            [15개 중 4개 평가 완료]
+            [15개 중 8개 평가 완료]
         </span>
         <!--        <form action = "/" method = "post">-->
         <div id = "survey">
@@ -30,7 +30,7 @@
         </div>
         <div id = "guide3">
                 <span id = "next">
-                    <button type = "button" id = "nextButton" onclick="ajax(); location.href = 'sixthSurvey'">다음 설문하러 가기</button>
+                    <button type = "button" id = "nextButton" onclick="ajax(); location.href = 'tenthSurvey'">다음 설문하러 가기</button>
                 </span>
         </div>
         <!--        </form>-->
@@ -131,7 +131,7 @@
 
     function ajax(){
         $.ajax({
-            url: '/fifthSurvey', // 클라이언트가 요청을 보낼 서버의 URL 주소
+            url: '/ninthSurvey', // 클라이언트가 요청을 보낼 서버의 URL 주소
             data: {"firstSurvey" : choice},        // HTTP 요청과 함께 서버로 보낼 데이터
             type: 'POST',          // HTTP 요청 방식(GET, POST)
             success : function(data) {

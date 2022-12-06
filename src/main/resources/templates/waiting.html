@@ -1,0 +1,40 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>KBL 팀 추천 서비스 - WhatsYourTeam</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<div id='container'>
+    <div id='box-left'></div>
+    <div id='box-center'>
+        <h2>설문조사가 모두 끝났습니다. 감사합니다.</h2>
+        <button type = "button" onclick="location.href = 'result'">결과 보러 가기</button>
+    </div>
+    <div id='box-right'></div>
+</div>
+</body>
+<style>
+#container {
+  display: flex;
+  width : 100vw;
+  height : 100vh;
+}
+
+#box-left {
+  border-right : 1px solid black;
+  flex: 1;
+}
+
+#box-center {
+  flex: 3;
+  text-align: center;
+}
+
+#box-right {
+  flex: 1;
+  text-align: right;
+  border-left : 1px solid black;
+}
+</style>
+</html>
