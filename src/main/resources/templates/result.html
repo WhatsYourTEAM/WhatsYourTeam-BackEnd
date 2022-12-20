@@ -5,6 +5,108 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
-    <h1 th:text = "${type}"></h1>
+<div id='container'>
+    <div id='box-left'></div>
+    <div id='box-center'>
+        <div id = "introduction1">당신의 농구 타입은 :</div>
+        <div class = "type" th:if = "${type} == 'steal'">숨막히는 수비 플레이어, 스틸왕!</div>
+        <div class = "type" th:if = "${type} == 'rebound'">골밑을 지배하는 리바운더!</div>
+        <div class = "type" th:if = "${type} == 'three'">왼손은 거들 뿐, 3점슈터!</div>
+        <div class = "type" th:if = "${type} == 'assist'">코트 위의 마에스트로, 어시스트왕!</div>
+        <div class = "type" th:if = "${type} == 'block'">Not In My House, 블락왕!</div>
+        <div id = "typeImage">
+            <div class = "type" th:if = "${type} == 'steal'"><img src = "https://images.chosun.com/resizer/2g8Up-L9OoRDTuh3qkZDFQfHoJA=/616x0/smart/cloudfront-ap-northeast-1.images.arcpublishing.com/chosun/6PW5UMKU4HQPTXFPK4ZZQPOJGQ.jpg" width = "600px" height = "400px"></div>
+            <div class = "type" th:if = "${type} == 'rebound'"><img src = "http://jumpball.co.kr/news/data/20220119/p1065616729113199_897_thum.jpg" width = "400px" height = "400px"></div>
+            <div class = "type" th:if = "${type} == 'three'"><img src = "https://basketkorea.com/news/data/20200414/p179526199700730_163.jpg" width = "300px" height = "400px"></div>
+            <div class = "type" th:if = "${type} == 'assist'"><img src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQSAG4_q2ljyCE_kkUcUzkFH3c7hosLJh8Zmg&usqp=CAU" width = "600px" height = "400px" ></div>
+            <div class = "type" th:if = "${type} == 'block'"><img src = "https://image.kmib.co.kr/online_image/2015/1212/201512121220_61160010156300_1.jpg" width = "300px" height="400px"></div>
+        </div>
+        <div id = "recommend">
+            <div class ="recordRecommend" th:if = "${type} == 'assist'">저번 시즌 어시스트 상위 3팀이에요<br><br><a href = "https://www.youtube.com/@PhoebusTV">1. 울산 현대모비스 <a href = "https://www.youtube.com/@PhoebusTV">(보러가기) </a></a><br>2. 안양 KGC <a href = "https://www.youtube.com/@kgcbasketball">(보러가기) </a><br>3. 수원 KT <a href = "https://www.youtube.com/@ktsonicboomtv">(보러가기) </a></div>
+            <div class ="recordRecommend" th:if = "${type} == 'rebound'">저번 시즌 리바운드 상위 3팀이에요<br><br>1. 서울 SK 나이츠 <a href = "https://www.youtube.com/@KnightsSK">(보러가기) </a><br>2. 수원 KT <a href = "https://www.youtube.com/@ktsonicboomtv">(보러가기) </a><br>3. 원주 DB <a href = "https://www.youtube.com/@kogaspegasus">(보러가기) </a></div>
+            <div class ="recordRecommend" th:if = "${type} == 'three'">저번 시즌 3점슛 상위 3팀이에요<br><br>1. 안양 KGC <a href = "https://www.youtube.com/@kgcbasketball"> (보러가기) </a><br>2. 대구 한국가스공사 <a href = "https://www.youtube.com/@kogaspegasus">(보러가기) </a> <br>3. 수원 KT <a href = "https://www.youtube.com/@ktsonicboomtv">(보러가기) </a></div>
+            <div class ="recordRecommend" th:if = "${type} == 'block'">저번 시즌 블락 상위 3팀이에요<br><br>1. 울산 현대모비스 <a href = "https://www.youtube.com/@PhoebusTV">(보러가기) </a><br>2. 수원 KT <a href = "https://www.youtube.com/@ktsonicboomtv">(보러가기) </a><br>3. 서울 SK 나이츠 <a href = "https://www.youtube.com/@KnightsSK">(보러가기) </a></div>
+            <div class ="recordRecommend" th:if = "${type} == 'steal'">저번 시즌 스틸 상위 3팀이에요<br><br>1. 고양 오리온 <a href = "https://www.youtube.com/@GoYangOrions">(보러가기) </a><br>2. 창원 LG <a href = "https://www.youtube.com/@LGsakers">(보러가기) </a><br>3. 서울 SK 나이츠 <a href = "https://www.youtube.com/@KnightsSK">(보러가기) </a></div>
+            <div class ="collaborativeRecommend" th:if = "${contentsRecommend} == 1">사용자와 비슷한 투표를 한<br> 사람들이 고른 최애팀이에요<br><br>서울 SK 나이츠 <a href = "https://www.youtube.com/@KnightsSK">(보러가기) </a></div>
+            <div class ="collaborativeRecommend" th:if = "${contentsRecommend} == 2">사용자와 비슷한 투표를 한<br> 사람들이 고른 최애팀이에요<br><br>수원 KT <a href = "https://www.youtube.com/@ktsonicboomtv">(보러가기) </a></div>
+            <div class ="collaborativeRecommend" th:if = "${contentsRecommend} == 3">사용자와 비슷한 투표를 한<br> 사람들이 고른 최애팀이에요<br><br>안양 KGC <a href = "https://www.youtube.com/@kgcbasketball">(보러가기) </a></div>
+            <div class ="collaborativeRecommend" th:if = "${contentsRecommend} == 4">사용자와 비슷한 투표를 한<br> 사람들이 고른 최애팀이에요<br><br>고양 캐롯 <a href = "https://www.youtube.com/@CARROT_JUMPERS">(보러가기) </a></div>
+            <div class ="collaborativeRecommend" th:if = "${contentsRecommend} == 5">사용자와 비슷한 투표를 한<br> 사람들이 고른 최애팀이에요<br><br>서울 삼성 <a href = "https://www.youtube.com/@thundersTV">(보러가기) </a></div>
+            <div class ="collaborativeRecommend" th:if = "${contentsRecommend} == 6">사용자와 비슷한 투표를 한<br> 사람들이 고른 최애팀이에요<br><br>원주 DB <a href = "https://www.youtube.com/@dbpromy">(보러가기) </a></div>
+            <div class ="collaborativeRecommend" th:if = "${contentsRecommend} == 7">사용자와 비슷한 투표를 한<br> 사람들이 고른 최애팀이에요<br><br>전주 KCC <a href = "https://www.youtube.com/@kccegis">(보러가기) </a></div>
+            <div class ="collaborativeRecommend" th:if = "${contentsRecommend} == 8">사용자와 비슷한 투표를 한<br> 사람들이 고른 최애팀이에요<br><br>대구 한국가스공사<a href = "https://www.youtube.com/@kogaspegasus">(보러가기) </a></div>
+            <div class ="collaborativeRecommend" th:if = "${contentsRecommend} == 9">사용자와 비슷한 투표를 한<br> 사람들이 고른 최애팀이에요<br><br>창원 LG <a href = "https://www.youtube.com/@LGsakers">(보러가기) </a></div>
+            <div class ="collaborativeRecommend" th:if = "${contentsRecommend} == 10">사용자와 비슷한 투표를 한<br> 사람들이 고른 최애팀이에요<br><br>울산 현대모비스 <a href = "https://www.youtube.com/@PhoebusTV">(보러가기) </a></div>
+        </div>
+        <div id = 'goButton' onclick="location.href = 'favorite.html'">
+            <button class = "goButton">최애팀 등록하러 가기 -></button>
+        </div>
+    </div>
+    <div id='box-right'></div>
+</div>
 </body>
+<style>
+#container {
+  display: flex;
+  width : 100vw;
+  height : 100vh;
+}
+
+#box-left {
+  border-right : 1px solid black;
+  flex: 1;
+}
+
+#box-center {
+  flex: 3;
+  text-align: center;
+}
+
+#introduction1{
+    font-weight : bold;
+    color : #6E6E6E;
+    font-size : 30px;
+    margin-top : 20px;
+}
+
+.type{
+    font-weight : bold;
+    font-size : 40px;
+    margin-top : 20px;
+}
+
+.recordRecommend{
+    margin-left : 131px;
+    float : left;
+    margin-top : 15px;
+    font-weight : bold;
+    font-size : 25px;
+}
+
+.collaborativeRecommend{
+    float : right;
+    margin-top : 15px;
+    font-weight : bold;
+    font-size : 25px;
+    margin-right : 123px;
+}
+
+.goButton{
+    width : 220px;
+    height : 60px;
+    border-radius : 25px;
+    background-color : black;
+    color : white;
+    margin-top : 30px;
+    border : 2px solid white;
+    font-size : 20px;
+    font-weight : bold;
+}
+
+#box-right {
+  flex: 1;
+  text-align: right;
+  border-left : 1px solid black;
+}
+</style>
 </html>

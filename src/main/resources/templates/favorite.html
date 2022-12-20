@@ -1,0 +1,141 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>KBL 팀 추천 서비스 - WhatsYourTeam</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<div id='container'>
+    <div id='box-left'></div>
+    <div id='box-center'>
+        <div id = "introduction">당신의 최애팀을 골라주세요!</div>
+        <div class = "teamList">
+            <div class = "team">
+                <button type = "button" class = "check" id = "first" name = "1" onclick="saveValue()">서울 SK 나이츠</button>
+                <button type = "button" class = "check" id = "second" name = "2" onclick="saveValue()">수원 KT</button> <br>
+                <button type = "button" class = "check" id = "third" name = "3" onclick="saveValue()">안양 KGC</button>
+                <button type = "button" class = "check" id = "fourth" name = "4" onclick="saveValue()">고양 캐롯</button> <br>
+                <button type = "button" class = "check" id = "fifth" name = "5" onclick="saveValue()">서울 삼성</button>
+                <button type = "button" class = "check" id = "sixth" name = "6" onclick="saveValue()">원주 DB</button> <br>
+                <button type = "button" class = "check" id = "seventh" name = "7" onclick="saveValue()">전주 KCC</button>
+                <button type = "button" class = "check" id = "eighth" name = "8" onclick="saveValue()">대구 한국가스공사</button> <br>
+                <button type = "button" class = "check" id = "ninth" name = "9" onclick="saveValue()">창원 LG</button>
+                <button type = "button" class = "check" id = "tenth" name = "10" onclick="saveValue()">울산 현대모비스</button> <br>
+            </div>
+        </div>
+        <div id = 'goButton'>
+            <button class = "goButton" onclick="ajax(); location.href = 'review'">등록하기</button>
+        </div>
+    </div>
+    <div id='box-right'></div>
+</div>
+</body>
+
+<style>
+#container {
+  display: flex;
+  width : 100vw;
+  height : 100vh;
+}
+
+#box-left {
+  border-right : 1px solid black;
+  flex: 1;
+}
+
+#box-center {
+  flex: 3;
+  text-align: center;
+}
+
+#introduction{
+    margin-top : 15px;
+    margin-bottom : 10px;
+    font-weight : bold;
+    font-size : 40px;
+}
+
+.check {
+    width : 200px;
+    height : 70px;
+    border-radius : 15px;
+    font-weight : bold;
+    font-size : 25px;
+    margin : 20px;
+}
+
+.goButton{
+    width : 220px;
+    height : 60px;
+    border-radius : 25px;
+    background-color : black;
+    color : white;
+    margin-top : 30px;
+    border : 2px solid white;
+    font-size : 20px;
+    font-weight : bold;
+}
+
+#box-right {
+  flex: 1;
+  text-align: right;
+  border-left : 1px solid black;
+}
+</style>
+<script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
+<script>
+    var choice;
+
+    function saveValue(){
+        let target = event.currentTarget.id;
+        if(document.getElementById(target).style.backgroundColor == "navy"){
+            document.getElementById(target).style.backgroundColor = "buttonface";
+            document.getElementById(target).style.color = "black";
+        }
+        else{
+            document.getElementById(target).style.backgroundColor = "navy";
+            document.getElementById(target).style.color = "white";
+        }
+        if(target == "first"){
+            choice = 1;
+        }
+        if(target == "second"){
+            choice = 2;
+        }
+        if(target == "third"){
+            choice = 3;
+        }
+        if(target == "fourth"){
+            choice = 4;
+        }
+        if(target == "fifth"){
+            choice = 5;
+        }
+        if(target == "sixth"){
+            choice = 6;
+        }
+        if(target == "seventh"){
+            choice = 7;
+        }
+        if(target == "eighth"){
+            choice = 8;
+        }
+        if(target == "ninth"){
+            choice = 9;
+        }
+        if(target == "tenth"){
+            choice = 10;
+        }
+    }
+
+    function ajax(){
+        $.ajax({
+            url: '/favorite', // 클라이언트가 요청을 보낼 서버의 URL 주소
+            data: {"firstSurvey" : choice},        // HTTP 요청과 함께 서버로 보낼 데이터
+            type: 'POST',          // HTTP 요청 방식(GET, POST)
+            success : function(data) {
+            }
+        });
+    }
+</script>
+</html>

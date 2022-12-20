@@ -59,5 +59,6 @@ public class User {
     @Column(name = "assist_third")
     private Integer assistThird;
 
-
+    @Column(name = "favorite")
+    private Integer favorite;
 }

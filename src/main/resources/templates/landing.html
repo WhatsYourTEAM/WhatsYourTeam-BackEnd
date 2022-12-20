@@ -8,12 +8,16 @@
 <div id='container'>
     <div id='box-left'></div>
     <div id='box-center'>
-        <h2 id = "introduction1">설문조사가 모두 끝났습니다. 감사합니다.</h2>
-        <button type = "button" class = "goButton" onclick="location.href = 'result'">결과 보러 가기</button>
+        <div id = "introduction"><img src = "https://www.fiba.basketball/images.fiba.com/Graphic/F/2/C/3/zyrbsnsOD0ypDupTUTzWAw.jpg?v=20201008114048475" width = "800px" height = "400px"></div>
+        <div id = 'introduction1'> KBL 팀 추천 서비스 </div>
+        <div id = 'goButton' onclick="location.href = 'landingPage.html'">
+            <button class = "goButton">설문조사 시작하기</button>
+        </div>
     </div>
     <div id='box-right'></div>
 </div>
 </body>
+
 <style>
 #container {
   display: flex;
@@ -31,10 +35,6 @@
   text-align: center;
 }
 
-#introduction1{
-    margin-top : 300px;
-}
-
 .goButton{
     width : 400px;
     height : 60px;
@@ -45,6 +45,12 @@
     border : 2px solid white;
     font-size : 40px;
     font-weight : bold;
+}
+
+#introduction1{
+    margin-top : 50px;
+    font-weight : bold;
+    font-size : 50px;
 }
 
 #box-right {

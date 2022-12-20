@@ -1,0 +1,150 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>KBL 팀 추천 서비스 - WhatsYourTeam</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<div id='container'>
+    <div id='box-left'></div>
+    <div id='box-center'>
+        <div id = "introduction0"> 최애팀 등록이 완료되었습니다</div>
+        <div id = "introduction1"> 추천드린 팀은 만족스러우신가요?</div>
+        <div id = "introduction2"> 더 좋은 추천을 위해 서비스를 평가해주세요</div>
+        <div class = "vote">
+            <button type = "button" class = "check" id = "first" name = "1" onclick="saveValue()">1점</button>
+            <button type = "button" class = "check" id = "second" name = "1" onclick="saveValue()">2점</button>
+            <button type = "button" class = "check" id = "third" name = "1" onclick="saveValue()">3점</button>
+            <button type = "button" class = "check" id = "fourth" name = "1" onclick="saveValue()">4점</button>
+            <button type = "button" class = "check" id = "fifth" name = "1" onclick="saveValue()">5점</button>
+        </div>
+        <div class = "end">
+            <button class = "goButton" onclick="location.href = 'thank'">제출하기</button>
+        </div>
+    </div>
+    <div id='box-right'></div>
+</div>
+</body>
+<style>
+#container {
+  display: flex;
+  width : 100vw;
+  height : 100vh;
+}
+
+#box-left {
+  border-right : 1px solid black;
+  flex: 1;
+}
+
+#box-center {
+  flex: 3;
+  text-align: center;
+}
+
+.vote{
+    margin-top : 10px;
+}
+
+.check {
+    width : 110px;
+    height : 70px;
+    border-radius : 15px;
+    font-weight : bold;
+    font-size : 25px;
+    margin : 20px;
+}
+
+#introduction0{
+    margin-top : 35px;
+    font-weight : bold;
+    font-size : 25px;
+}
+
+#introduction1{
+    margin-top : 180px;
+    font-weight : bold;
+    font-size : 30px;
+}
+
+#introduction2{
+    margin-top : 20px;
+    font-weight : bold;
+    font-size : 30px;
+}
+
+.goButton{
+    width : 400px;
+    height : 60px;
+    border-radius : 25px;
+    background-color : black;
+    color : white;
+    margin-top : 30px;
+    border : 2px solid white;
+    font-size : 40px;
+    font-weight : bold;
+}
+
+#box-right {
+  flex: 1;
+  text-align: right;
+  border-left : 1px solid black;
+}
+</style>
+<script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
+<script>
+    var choice;
+
+    function saveValue(){
+        let target = event.currentTarget.id;
+        if(document.getElementById(target).style.backgroundColor == "navy"){
+            document.getElementById(target).style.backgroundColor = "buttonface";
+            document.getElementById(target).style.color = "black";
+        }
+        else{
+            document.getElementById(target).style.backgroundColor = "navy";
+            document.getElementById(target).style.color = "white";
+        }
+        if(target == "first"){
+            choice = 1;
+        }
+        if(target == "second"){
+            choice = 2;
+        }
+        if(target == "third"){
+            choice = 3;
+        }
+        if(target == "fourth"){
+            choice = 4;
+        }
+        if(target == "fifth"){
+            choice = 5;
+        }
+        if(target == "sixth"){
+            choice = 6;
+        }
+        if(target == "seventh"){
+            choice = 7;
+        }
+        if(target == "eighth"){
+            choice = 8;
+        }
+        if(target == "ninth"){
+            choice = 9;
+        }
+        if(target == "tenth"){
+            choice = 10;
+        }
+    }
+
+    function ajax(){
+        $.ajax({
+            url: '/favorite', // 클라이언트가 요청을 보낼 서버의 URL 주소
+            data: {"firstSurvey" : choice},        // HTTP 요청과 함께 서버로 보낼 데이터
+            type: 'POST',          // HTTP 요청 방식(GET, POST)
+            success : function(data) {
+            }
+        });
+    }
+</script>
+</html>
